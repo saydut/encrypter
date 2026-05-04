@@ -16,7 +16,7 @@ from typing import Callable, Iterable
 import nacl.bindings as nb
 import nacl.pwhash
 
-from .format import CHUNK_SIZE, EXTENSION, HEADER_SIZE, Header
+from encrypter.format import CHUNK_SIZE, EXTENSION, HEADER_SIZE, Header
 
 KEY_BYTES = nb.crypto_secretstream_xchacha20poly1305_KEYBYTES  # 32
 TAG_BYTES = nb.crypto_secretstream_xchacha20poly1305_ABYTES    # 17

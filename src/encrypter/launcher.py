@@ -9,7 +9,7 @@ from pathlib import Path
 
 import requests
 
-from . import __version__
+from encrypter import __version__
 
 PROGRAMS_URL = "https://www.saydut.com/static/programs.json"
 PROGRAM_ID = "saydut-kripto"

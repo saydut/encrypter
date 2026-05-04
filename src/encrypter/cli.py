@@ -7,8 +7,8 @@ from pathlib import Path
 
 import typer
 
-from . import __version__
-from .crypto import (
+from encrypter import __version__
+from encrypter.crypto import (
     FormatError,
     WrongPasswordError,
     decrypt_file,
@@ -100,7 +100,7 @@ def decrypt_dir(
 @app.command()
 def gui():
     """GUI'yi aç."""
-    from .gui import run
+    from encrypter.gui import run
 
     run()
 

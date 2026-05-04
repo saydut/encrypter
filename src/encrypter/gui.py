@@ -7,8 +7,8 @@ from tkinter import filedialog, messagebox
 
 import customtkinter as ctk
 
-from . import __version__
-from .crypto import (
+from encrypter import __version__
+from encrypter.crypto import (
     FolderReport,
     FormatError,
     WrongPasswordError,
@@ -17,7 +17,7 @@ from .crypto import (
     encrypt_file,
     encrypt_folder,
 )
-from .launcher import (
+from encrypter.launcher import (
     fetch_latest_version,
     open_launcher_or_site,
     update_available,
@@ -250,7 +250,8 @@ class App(ctk.CTk):
                 result = work()
                 self.after(0, lambda: self._finish(on_done, result, None))
             except Exception as exc:
-                self.after(0, lambda: self._finish(on_done, None, exc))
+                err = exc
+                self.after(0, lambda e=err: self._finish(on_done, None, e))
 
         threading.Thread(target=runner, daemon=True).start()
 
