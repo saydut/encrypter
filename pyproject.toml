@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "encrypter"
-version = "3.0.0"
+version = "3.0.1"
 description = "Saydut Encrypter — XChaCha20-Poly1305 + Argon2id ile dosya/klasör şifreleme"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.scripts]
-encrypter = "encrypter.cli:main"
+encrpter = "encrypter.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/saydut/encrypter"

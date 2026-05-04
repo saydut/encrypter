@@ -17,7 +17,38 @@ from encrypter.crypto import (
     encrypt_folder,
 )
 
-app = typer.Typer(help="Saydut Encrypter — dosya/klasör şifreleme aracı.")
+app = typer.Typer(
+    help="Saydut Encrypter — dosya/klasör şifreleme aracı.",
+    invoke_without_command=True,
+    no_args_is_help=False,
+)
+
+
+BANNER = f"""\
+╭──────────────────────────────────────────────╮
+│  SAYDUT ENCRPTER  v{__version__:<8}                  │
+│  XChaCha20-Poly1305 + Argon2id              │
+│  .saydut formatında dosya/klasör şifreleme  │
+╰──────────────────────────────────────────────╯
+
+Komutlar:
+  encrpter                 Grafik arayüzü açar (varsayılan)
+  encrpter encrypt FILE    Dosya şifrele
+  encrpter decrypt FILE    .saydut dosyası çöz
+  encrpter encrypt-dir DIR Klasör şifrele
+  encrpter decrypt-dir DIR Klasör çöz
+  encrpter --help          Tüm seçenekleri göster
+
+Grafik arayüz açılıyor...
+"""
+
+
+@app.callback()
+def _root(ctx: typer.Context) -> None:
+    if ctx.invoked_subcommand is None:
+        typer.echo(BANNER)
+        from encrypter.gui import run
+        run()
 
 
 def _ask_password(confirm: bool) -> str:
