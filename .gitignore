@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+
+# makepkg (sadece root'taki) — src/ kaynaktır, takip edilir
+/pkg/
+/encrypter/
+*.pkg.tar.zst
+*.pkg.tar.xz
+
+# OS
+.DS_Store
+Thumbs.db

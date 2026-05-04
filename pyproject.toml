@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "encrypter"
+version = "3.0.0"
+description = "Saydut Encrypter — XChaCha20-Poly1305 + Argon2id ile dosya/klasör şifreleme"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Kemal Saydut" }]
+requires-python = ">=3.11"
+dependencies = [
+    "pynacl>=1.5",
+    "customtkinter>=5.2",
+    "requests>=2.31",
+    "typer>=0.12",
+]
+
+[project.scripts]
+encrypter = "encrypter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/saydut/encrypter"
+Issues = "https://github.com/saydut/encrypter/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
